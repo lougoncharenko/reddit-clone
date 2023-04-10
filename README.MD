@@ -14,6 +14,7 @@ In this project, I develop a clone of Reddit with posts, subreddits, and authent
 ## Tools
 - [node.js](https://nodejs.org/en)
 - [Express](https://expressjs.com)
+- [Express Handlebars](https://www.npmjs.com/package/express-handlebars)
 - [MongoDB](https://www.mongodb.com)
 - [Mongoose (ODM)](https://mongoosejs.com)
 - [JSON Web Tokens (JWT)](https://jwt.io)
