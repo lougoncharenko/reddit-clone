@@ -17,3 +17,7 @@ In this project, I develop a clone of Reddit with posts, subreddits, and authent
 - [MongoDB](https://www.mongodb.com)
 - [Mongoose (ODM)](https://mongoosejs.com)
 - [JSON Web Tokens (JWT)](https://jwt.io)
+
+## User narratives
+
+## Wireframe
