@@ -20,16 +20,10 @@ app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 app.set('views', './views');
 
-
 // Routes
 app.get('/', (req, res) => {
     res.render('home');
 });
-
-// app.get('/posts/new', (req, res) => {
-//     res.render('posts-new');
-// });
-
 
 app.listen(PORT, () =>
   console.log(`Nodeddit app listening on port ${PORT}!`),
