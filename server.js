@@ -22,6 +22,10 @@ app.get('/', (req, res) => {
     res.render('home');
 });
 
+app.get('/posts/new', (req, res) => {
+    res.render('posts-new');
+});
+
 // New Route
 app.get('/cases/new', (req, res) => {
     res.render('cases-new', {});
