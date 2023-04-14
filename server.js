@@ -3,6 +3,10 @@ const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 4000;
 
+//Controllers
+require('./controllers/posts')(app);
+require('./controllers/cases')(app);
+
 // Middleware
 const handlebars =  require('express-handlebars');
 const hbs = handlebars.create({
@@ -22,26 +26,10 @@ app.get('/', (req, res) => {
     res.render('home');
 });
 
-app.get('/posts/new', (req, res) => {
-    res.render('posts-new');
-});
+// app.get('/posts/new', (req, res) => {
+//     res.render('posts-new');
+// });
 
-// New Route
-app.get('/cases/new', (req, res) => {
-    res.render('cases-new', {});
-});
-
-// Create Route
-app.post('cases/create', (req, res) => {
-    console.log("OH ho")
-
-    res.redirect('/cases/${caseid}');
-});
-
-// Show Route
-app.get('/cases/:id', (req, res) => {
-    res.render()
-})
 
 app.listen(PORT, () =>
   console.log(`Nodeddit app listening on port ${PORT}!`),
