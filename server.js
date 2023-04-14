@@ -1,7 +1,12 @@
 // Require Libraries
 const express = require("express");
 const app = express();
+
+// Setup port
 const PORT = process.env.PORT || 4000;
+
+// Setup db
+require('./data/reddit-db');
 
 //Controllers
 require('./controllers/posts')(app);
@@ -16,6 +21,8 @@ const hbs = handlebars.create({
         bar() { return 'BAR!'; }
     }
 });
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 app.set('views', './views');
