@@ -22,6 +22,23 @@ app.get('/', (req, res) => {
     res.render('home');
 });
 
+// New Route
+app.get('/cases/new', (req, res) => {
+    res.render('cases-new', {});
+});
+
+// Create Route
+app.post('cases/create', (req, res) => {
+    console.log("OH ho")
+
+    res.redirect('/cases/${caseid}');
+});
+
+// Show Route
+app.get('/cases/:id', (req, res) => {
+    res.render()
+})
+
 app.listen(PORT, () =>
   console.log(`Nodeddit app listening on port ${PORT}!`),
 );
