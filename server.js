@@ -1,6 +1,12 @@
 // Require Libraries
 const express = require("express");
 const app = express();
+const Post = require('./models/posts');
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+//command to start mongo db
+// brew services restart mongodb-community
 
 // Setup port
 const PORT = process.env.PORT || 4000;
@@ -21,16 +27,20 @@ const hbs = handlebars.create({
         bar() { return 'BAR!'; }
     }
 });
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 app.set('views', './views');
 
 // Routes
-app.get('/', (req, res) => {
-    res.render('home');
-});
+app.get('/', async (req, res) => {
+    try {
+      const posts = await Post.find({}).lean();
+      return res.render('posts-index', { posts });
+    } catch (err) {
+      console.log(err.message);
+    }
+  });
 
 app.listen(PORT, () =>
   console.log(`Nodeddit app listening on port ${PORT}!`),
