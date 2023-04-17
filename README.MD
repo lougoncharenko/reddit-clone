@@ -19,6 +19,10 @@ In this project, I develop a clone of Reddit with posts, subreddits, and authent
 - [Mongoose (ODM)](https://mongoosejs.com)
 - [JSON Web Tokens (JWT)](https://jwt.io)
 
+## Resources
+- [Async/Await vs Promises](https://levelup.gitconnected.com/async-await-vs-promises-4fe98d11038f)
+
+
 ## User narratives
 ### User 1
 Kayla is an aspiring developer who loves to jump onto nodeddit to get the latest news and trending discussions on technology-related topics. She uses the application to ask other developers questions and engage in discussions. 
