@@ -18,9 +18,11 @@ In this project, I develop a clone of Reddit with posts, subreddits, and authent
 - [MongoDB](https://www.mongodb.com)
 - [Mongoose (ODM)](https://mongoosejs.com)
 - [JSON Web Tokens (JWT)](https://jwt.io)
+- [Mocha.js](https://mochajs.org)
 
 ## Resources
-- [Async/Await vs Promises](https://levelup.gitconnected.com/async-await-vs-promises-4fe98d11038f)
+- [Tutorial link](https://github.com/Tech-at-DU/Node-Reddit-Clone)
+- [Async/Await vs Promises](https://levelup.gitconnected.com/async-await-vs-promises-4fe98d11038f) and [Chai.js](https://www.chaijs.com) for testing
 
 
 ## User narratives

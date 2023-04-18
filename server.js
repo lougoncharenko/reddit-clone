@@ -45,3 +45,5 @@ app.get('/', async (req, res) => {
 app.listen(PORT, () =>
   console.log(`Nodeddit app listening on port ${PORT}!`),
 );
+
+module.exports = app;

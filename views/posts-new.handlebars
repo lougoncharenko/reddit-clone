@@ -31,6 +31,20 @@
           placeholder="Summary"
         ></textarea>
       </div>
+      {{!-- <div class="form-group">
+        <label for="post-subreddit">Subreddit</label>
+        <input name="subreddit" type="text" class="form-control" id="post-subreddit" placeholder="Subreddit">
+      </div> --}}
+
+      <div class="form-group">
+        <label for="post-subreddit">Subreddit</label>
+        <select name="subreddit"  id="post-subreddit" >
+          <option value="fitness">Fitness</option>
+          <option value="business">Business</option>
+          <option value="technology">Technology</option>
+          <option value="food">Food</option>
+        </select>
+      </div >
       <div class="text-right">
         <button type="submit" class="btn btn-primary">Create Post</button>
       </div>
