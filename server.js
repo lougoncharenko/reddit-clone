@@ -17,6 +17,7 @@ require('./data/reddit-db');
 //Controllers
 require('./controllers/posts')(app);
 require('./controllers/comments.js')(app);
+require('./controllers/auth.js')(app);
 require('./controllers/cases')(app);
 
 // Middleware
