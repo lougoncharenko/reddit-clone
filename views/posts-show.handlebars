@@ -6,6 +6,7 @@
     <h2>Comments:</h2>
     {{#each post.comments}}
       {{this.content}}
+      <p class="text-right">{{this.author.username}}</p>
     {{/each}}
     <form action="/posts/{{post._id}}/comments" method="post">
       <textarea class='form-control' name="content" placeholder="Comment"></textarea>
