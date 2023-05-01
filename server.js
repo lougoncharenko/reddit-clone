@@ -38,6 +38,7 @@ const PORT = process.env.PORT || 4000;
 require('./controllers/posts')(app);
 require('./controllers/comments.js')(app);
 require('./controllers/auth.js')(app);
+require('./controllers/replies.js')(app);
 
 const Post = require('./models/posts');
 // Routes

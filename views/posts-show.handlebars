@@ -5,8 +5,9 @@
     <p>{{post.summary}}</p>
     <h2>Comments:</h2>
     {{#each post.comments}}
-      {{this.content}}
-      <p class="text-right">{{this.author.username}}</p>
+        <p>{{this.content}}</p>
+        <p class="text-right">{{this.author.username}}</p>
+        <a href="/posts/{{../post._id}}/comments/{{this._id}}/replies/new">Reply</a>
     {{/each}}
     <form action="/posts/{{post._id}}/comments" method="post">
       <textarea class='form-control' name="content" placeholder="Comment"></textarea>

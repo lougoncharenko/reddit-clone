@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
+const user = require('../models/user');
 
 module.exports = (app) => {
   // SIGN UP FORM
@@ -46,7 +47,7 @@ module.exports = (app) => {
           res.cookie('nToken', token, { maxAge: 172800000, httpOnly: true });
         } else {
           const token = jwt.sign({ _id: user._id, username: user.username }, process.env.SECRET);
-          res.cookie('nToken', token, { httpOnly: true }); 
+          res.cookie('nToken', token, { httpOnly: true }); //JWT token should expire when browser window is closed
         }
         return res.redirect('/');
       });
