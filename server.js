@@ -42,10 +42,11 @@ require('./controllers/auth.js')(app);
 const Post = require('./models/posts');
 // Routes
 app.get('/', async (req, res) => {
-  const currentUser = req.user;
+  const { user } = req;
+  console.log(req.cookies);
     try {
       const posts = await Post.find({}).lean();
-      return res.render('posts-index', { posts, currentUser  });
+      return res.render('posts-index', { posts, user  });
     } catch (err) {
       console.log(err.message);
     }
