@@ -2,9 +2,9 @@ const Post = require('../models/posts');
 
 module.exports = (app) => {
     // CREATE
-    // app.get('/posts/new', (req, res) => {
-    //     res.render('posts-new');
-    // });
+    app.get('/posts/new', (req, res) => {
+        res.render('posts-new');
+    });
     // CREATE
     app.post('/posts/new', (req, res) => {
       if (req.user) {
