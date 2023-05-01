@@ -9,7 +9,6 @@ const checkAuth = (req, res, next) => {
     const decodedToken = jwt.decode(token, { complete: true }) || {};
     req.user = decodedToken.payload;
   }
-
   next();
 };
 
