@@ -1,6 +1,8 @@
 // Require Libraries
+const cookieParser = require('cookie-parser');
 const express = require("express");
 const app = express();
+app.use(cookieParser()); // Add this after you initialize express.
 const Post = require('./models/posts');
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
