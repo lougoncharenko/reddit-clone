@@ -1,12 +1,36 @@
 <div class="row">
   <div class="col-sm-6 col-sm-offset-3">
-    <h1>Post:</h1>
-    <a href="{{post.url}}" class="lead">{{post.title}}</a>
-    <p>{{post.summary}}</p>
-    <h2>Comments:</h2>
-    {{#each post.comments}}
-      {{> comment comment=this postId=../post._id}}
-    {{/each}}
+    <div class="d-flex flex-row-reverse justify-content-end">
+      <div>
+        <a href="{{post.url}}" class="lead">{{post.title}}</a>
+        <p>{{post.summary}}</p>
+        <p><small>{{post.author.username}}</small></p>
+        {{#if post.subreddits}}
+          <p class="mb-0">Post subreddits:</p>
+          <div>
+          {{#each post.subreddits}}
+            <a href="/n/{{this}}" class="mx-2">{{this}}</a>
+          {{/each}}
+          </div>
+        {{/if}}
+      </div>
+      <div class="d-flex flex-column justify-content-center mx-4">
+        <form class="vote-up" data-id="{{post._id}}">
+          <button type="submit" class="btn btn-outline-dark">🔼</button>
+        </form>
+        {{post.voteScore}}
+        <form class="vote-down" data-id="{{post._id}}">
+          <button type="submit" class="btn btn-outline-dark">🔽</button>
+        </form>
+      </div>
+    </div>
+    {{#if post.comments}}
+      <p class="mb-0">Comments:</p>
+        {{#each post.comments}}
+          {{> comment comment=this postId=../post._id currentUser=../currentUser}}
+        {{/each}}
+    {{/if}}
+    <p class="mt-2 mb-0">Add a comment:</p>
     <form action="/posts/{{post._id}}/comments" method="post">
       <textarea class='form-control' name="content" placeholder="Comment"></textarea>
       <div class="text-right">

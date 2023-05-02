@@ -16,7 +16,7 @@ module.exports = (app) => {
         process.env.SECRET, 
         { expiresIn: '60 days' });
       res.cookie('nToken', token, { maxAge: 900000, httpOnly: true });
-      return res.redirect('/');
+      return res.redirect('/login');
     } catch(err) {
       console.log(err.message);
       return res.status(400).send({ err });
