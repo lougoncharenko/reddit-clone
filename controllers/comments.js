@@ -1,24 +1,22 @@
 const Comment = require('../models/comment');
-const Post = require('../models/posts');
+const Post = require('../models/post');
+const User = require('../models/user');
 
 module.exports = (app) => {
-    // CREATE Comment
-    app.post('/posts/:postId/comments', (req, res) => {
-        // INSTANTIATE INSTANCE OF MODEL
-        const comment = new Comment(req.body);
-        comment.author = req.user._id;
-      
-        // SAVE INSTANCE OF Comment MODEL TO DB
-        comment
-          .save()
-          .then(() => Post.findById(req.params.postId))
-          .then((post) => {
-            post.comments.unshift(comment);
-            return post.save();
-          })
-          .then(() => res.redirect('/'))
-          .catch((err) => {
-            console.log(err);
-          });
-      });
+  // CREATE Comment
+  app.post('/posts/:postId/comments', async (req, res) => {
+    try {
+      const comment = new Comment(req.body);
+      comment.author = req.user._id;
+      await comment.save();
+      const [post] = await Promise.all([
+        Post.findById(req.params.postId),
+      ]);
+      post.comments.unshift(comment);
+      await post.save();
+      res.redirect(`/posts/${req.params.postId}`);
+    } catch (err) {
+      console.log(err);
+    }
+  });
 };

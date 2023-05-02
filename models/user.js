@@ -22,7 +22,6 @@ userSchema.pre('save', function (next) {
     });
   });
 });
-
 // Need to use function to enable this.password to work.
 userSchema.methods.comparePassword = function (password, done) {
   bcrypt.compare(password, this.password, (err, isMatch) => {
